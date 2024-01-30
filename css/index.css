@@ -1,0 +1,29 @@
+.title {
+    color: #6757d9;
+    margin: 50px;
+    font-size: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    gap: 32px;
+}
+
+.container a {
+    text-decoration: none;
+    background-color: #fff;
+    color: #6757d9;
+    padding: 20px 40px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all .2s ease-in;
+}
+
+.container a:hover {
+    background-color: #6757d9;
+    color: #fff;
+}
