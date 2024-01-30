@@ -1,29 +1,28 @@
-.title {
+h1 {
     color: #6757d9;
-    margin: 50px;
-    font-size: 2rem;
+    margin-top: 50px;
+    font-size: 2.5rem;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: fit-content;
-    gap: 32px;
+    padding: 20px;
 }
 
-.container a {
-    text-decoration: none;
+a {
     background-color: #fff;
-    color: #6757d9;
+    margin-bottom: 30px;
     padding: 20px 40px;
+    text-decoration: none;
+    color: #6757d9;
     border-radius: 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all .2s ease-in;
+    transition: all .3s ease-in;
+    font-size: 1.5rem;
 }
 
-.container a:hover {
+a:hover {
     background-color: #6757d9;
     color: #fff;
 }

@@ -110,17 +110,17 @@
 }
 
 .correct {
-    background-color: #5bd7bc;
+    background-color: #5bd7bc !important;
 }
 
 .incorrect {
-    background-color: #fe6681;
+    background-color: #fe6681 !important;
 }
 
 .correct:hover {
-    background-color: #5bd7bc;
+    background-color: #5bd7bc !important;
 }
 
 .incorrect:hover {
-    background-color: #fe6681;
+    background-color: #fe6681 !important;
 }
