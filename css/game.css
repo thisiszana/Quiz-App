@@ -9,6 +9,45 @@
     animation: rotation 1.5s linear infinite;
 }
 
+.error-box {
+    background-color:  #6757d9;
+    text-align: center;
+    padding: 25px 40px;
+    border-radius: 15px;
+    opacity: 0;
+    display: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.error-box.active {
+    display: inline-block;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.error-box h4 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.error-box button {
+    all: unset;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #eeedfb;
+    padding: 8px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .2s ease-in;
+    border: 2px solid #fff;
+}
+
+.error-box button:hover {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fe6681;
+}
+
 @keyframes rotation {
     0% {
         transform: rotate(0deg);

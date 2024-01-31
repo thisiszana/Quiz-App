@@ -8,9 +8,14 @@ const scoreCount = document.getElementById("score-count");
 const nextBtn = document.getElementById("next-button");
 const questionCount = document.getElementById("question-count");
 const finishButton = document.getElementById("finish-button");
+const errorBox = document.querySelector(".error-box");
+const errorButton = document.getElementById("error-btn");
+
+const level = localStorage.getItem("level") || "medium";
+
 
 const CORRECT_BONUS = 10;
-const URL = "https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple";
+const URL = `https://opentdb.com/api.php?amount=10&difficulty=${level}&type=multiple`;
 
 let formatData = null;
 let questionIndex = 0;
@@ -19,10 +24,21 @@ let score = 0
 let isAccepted = true;
 
 const fetchData = async () => {
-    const response = await fetch(URL);
-    const json = await response.json();
-    formatData = formatedData(json.results);
-    start();
+    try {
+        const response = await fetch(URL);
+        const json = await response.json();
+        formatData = formatedData(json.results);
+        start();
+    } catch (err) {
+        loader.style.display = "none";
+        errorBox.classList.add("active")
+    }
+};
+
+const start = () => {
+    showQuestion();
+    loader.style.display = "none";
+    container.style.display = "block";
 };
 
 const showQuestion = () => {
@@ -34,12 +50,6 @@ const showQuestion = () => {
     answerList.forEach((answerBtn, index) => {
         answerBtn.innerText = answer[index];
     })
-};
-
-const start = () => {
-    showQuestion();
-    loader.style.display = "none";
-    container.style.display = "block";
 };
 
 const checkAnswer = (event, index) => {
@@ -81,7 +91,10 @@ const finishHandler = () => {
 
 window.addEventListener("DOMContentLoaded", fetchData);
 nextBtn.addEventListener("click", nextBtnHandler);
-finishButton.addEventListener("click", finishHandler)
+finishButton.addEventListener("click", finishHandler);
+errorButton.addEventListener("click", () => {
+    window.location.assign("/")
+})
 answerList.forEach((answerBtn, index) => {
     answerBtn.addEventListener("click", (event) => checkAnswer(event, index))
 })
